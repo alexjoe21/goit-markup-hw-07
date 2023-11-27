@@ -30,6 +30,7 @@ a {
   display: flex;
   justify-content: center;
   gap: 24px;
+  flex-wrap: wrap;
 }
 .list h3 {
   font-size: 20px;
@@ -487,6 +488,11 @@ a:focus {
   text-align: center;
 }
 
+.our-team-img {
+  display: block;
+  width: 100%;
+}
+
 .our-team-item {
   align-items: center;
   background-color: var(--WHITE);
@@ -501,6 +507,7 @@ a:focus {
   align-items: center;
   gap: 24px;
   padding: 8px 0px 32px 0px;
+  width: 100%;
 }
 
 .our-team-link {
@@ -529,11 +536,13 @@ a:focus {
   display: flex;
   justify-content: center;
   gap: 24px;
+
 }
 
 .cs-item {
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    flex-basis: (100% / 2 - 30px);
 }
 
 .cs-link {
@@ -563,17 +572,24 @@ a:focus {
 /* End of Customer Section */
 
 /* footer */
+
 .footer {
   color: var(--CLOUD);
   line-height: 1.5;
   letter-spacing: 0.32px;
   background-color: var(--NAVY-BLUE);
-  padding: 120px 0;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
-.footer-sect {
+
+.footer-inner {
   display: flex;
-  column-gap: 120px;
+  justify-content: space-between;
+  row-gap: 72px;
+  flex-wrap: wrap;
 }
+
+
 .footer-logo {
   color: var(--CLOUD);
   padding-top: 101.5px;
@@ -626,14 +642,14 @@ a:focus {
   background: none;
   border-radius: 4px;
   padding: 10px;
-  width: 264px;
-  /* height: 40px; */
+  width: -webkit-fill-available;
   border-style: none;
   background-color: none;
   flex-shrink: 0;
   margin-right: 16px;
   position: relative;
   margin-top: 16px;
+  margin-bottom: 24px;
 }
 
 .ftr-sub-input::placeholder {
@@ -803,17 +819,50 @@ a:focus {
     width: 768px;
   }
 
-  .adv-item {
+  .adv-item,
+  .our-team-item {
     flex-basis: calc(100% / 2 - 30px);
   }
+
+  .cs-item {
+    flex-basis: calc(100% /3 - 30px);
+  }
+
+  .footer {
+    text-align: center;
+  }
+
 }
+
+
 
 @media (min-width: 1200px) {
   .container {
     width: 1200px;
   }
 
-  .adv-item {
+  .adv-item,
+  .our-team-item {
     flex-basis: calc(100% / 4 - 30px);
   }
+
+  .cs-item {
+    flex-basis: 100% / 6 - 30px;
+  }
+
+  .ftr-sub-input {
+    width: 264px;
+    margin-right: 24px;
+  }
 }
+
+
+@media (max-width: 767px) {
+  .footer-inner {
+  justify-content: center;
+  }
+}
+
+
+
+
